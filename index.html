@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Civil Service Exam Practice Test - Error Recognition</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      margin: 5px 0;
+    }
+    .submit-btn {
+      margin-top: 20px;
+    }
+    .result, .explanation {
+      margin-top: 30px;
+      padding: 15px;
+      border-top: 2px solid #ccc;
+    }
+    .correct { color: green; }
+    .incorrect { color: red; }
+    .advertisement img {
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      margin: 0 auto 15px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CIVIL SERVICE EXAM PRACTICE TEST</h1>
+  <h3>CREATED BY: CSE LEARNING ESSENTIALS</h3>
+  <h2>SECTION 1: VERBAL ABILITY</h2>
+  <h3>PART 3: ERROR RECOGNITION</h3>
+  <p><strong>10-ITEM TEST</strong> | <strong>PASSING SCORE: 8</strong></p>
+
+  <p><em>Directions:</em> For each sentence, choose the word or phrase that must be removed or replaced to make the sentence grammatically correct. Choose option E if there is no error.</p>
+
+  <form id="quiz-form">
+    <div id="questions-container"></div>
+    <div class="submit-btn">
+      <button type="button" onclick="submitQuiz()">Submit</button>
+    </div>
+  </form>
+
+  <div id="result" class="result"></div>
+  <div id="explanation" class="explanation" style="display:none;"></div>
+
+  <div class="social-link">
+    <p>Follow us on <a href="https://www.facebook.com/cselearningessentials/" target="_blank">Facebook</a> for more updates!</p>
+    <p>Subscribe to our YouTube Channel <a href="https://www.youtube.com/@cselearningessentialsph2023" target="_blank">here</a> for more content!</p>
+  </div>
+
+  <div class="advertisement">
+    <img src="images/advertisement.png" alt="Civil Service E-book">
+    <p>Avail our latest Civil Service Exam Reviewer E-books. Direct message us for more details!</p>
+  </div>
+
+<script>
+  const questions = [
+    {
+      sentence: "1. Each of the applicants have submitted their requirements ahead of the deadline.",
+      options: [
+        "A. Each of the applicants",
+        "B. have submitted",
+        "C. their requirements",
+        "D. ahead of the deadline.",
+        "E. NO ERROR"
+      ],
+      correct: "B",
+      explanation: "\"Each\" is a singular subject; it should be followed by 'has', not 'have'.",
+      correction: "Each of the applicants has submitted their requirements ahead of the deadline."
+    },
+    {
+      sentence: "2. The list of approved candidates were posted on the bulletin board this morning.",
+      options: [
+        "A. The list",
+        "B. of approved candidates",
+        "C. were posted",
+        "D. on the bulletin board this morning.",
+        "E. NO ERROR"
+      ],
+      correct: "C",
+      explanation: "The subject is 'The list' (singular), not 'candidates'.",
+      correction: "The list of approved candidates was posted on the bulletin board this morning."
+    },
+    {
+      sentence: "3. One of the boys who always volunteer to perform at school events play the guitar exceptionally well during assemblies.",
+      options: [
+        "A. One of the boys",
+        "B. who always volunteer to perform at school events",
+        "C. play the guitar",
+        "D. exceptionally well during assemblies.",
+        "E. NO ERROR"
+      ],
+      correct: "C",
+      explanation: "The main subject is 'One', which is singular.",
+      correction: "One of the boys who always volunteer to perform at school events plays the guitar exceptionally well during assemblies."
+    },
+    {
+      sentence: "4. Neither the principal nor the teachers agrees with the changes implemented by the new school policy last month.",
+      options: [
+        "A. Neither the principal",
+        "B. nor the teachers",
+        "C. agrees with the changes",
+        "D. implemented by the new school policy last month.",
+        "E. NO ERROR"
+      ],
+      correct: "C",
+      explanation: "Verb must agree with the subject closest to it ('teachers' = plural).",
+      correction: "Neither the principal nor the teachers agree with the changes implemented by the new school policy last month."
+    },
+    {
+      sentence: "5. The number of people who arrived early for the concert tickets were more than four hundred.",
+      options: [
+        "A. The number of people",
+        "B. who arrived early",
+        "C. for the concert tickets",
+        "D. were more than four hundred.",
+        "E. NO ERROR"
+      ],
+      correct: "D",
+      explanation: "The subject is 'The number', which is singular.",
+      correction: "The number of people who arrived early for the concert tickets was more than four hundred."
+    },
+    {
+      sentence: "6. A number of people waiting outside the venue was already getting restless by noon.",
+      options: [
+        "A. A number of people",
+        "B. waiting outside the venue",
+        "C. was already getting",
+        "D. restless by noon.",
+        "E. NO ERROR"
+      ],
+      correct: "C",
+      explanation: "'A number of people' is treated as plural.",
+      correction: "A number of people waiting outside the venue were already getting restless by noon."
+    },
+    {
+      sentence: "7. Either the manager or the assistants is responsible for checking the inventory before closing time.",
+      options: [
+        "A. Either the manager",
+        "B. or the assistants",
+        "C. is responsible",
+        "D. for checking the inventory before closing time.",
+        "E. NO ERROR"
+      ],
+      correct: "C",
+      explanation: "Verb must agree with the subject closer to it ('assistants' = plural).",
+      correction: "Either the manager or the assistants are responsible for checking the inventory before closing time."
+    },
+    {
+      sentence: "8. The players, along with their coach, arrive at the stadium an hour before the game starts.",
+      options: [
+        "A. The players",
+        "B. along with their coach",
+        "C. arrive at the stadium",
+        "D. an hour before the game starts.",
+        "E. NO ERROR"
+      ],
+      correct: "E",
+      explanation: "No error in subject-verb agreement.",
+      correction: "No correction needed."
+    },
+    {
+      sentence: "9. There is several issues that need to be addressed before the project can proceed.",
+      options: [
+        "A. There is",
+        "B. several issues",
+        "C. that need to be addressed",
+        "D. before the project can proceed.",
+        "E. NO ERROR"
+      ],
+      correct: "A",
+      explanation: "'Several issues' is plural, so the verb should be 'are'.",
+      correction: "There are several issues that need to be addressed before the project can proceed."
+    },
+    {
+      sentence: "10. Neither of the players are willing to take the final shot, even though they practiced all week.",
+      options: [
+        "A. Neither of the players",
+        "B. are willing to take",
+        "C. the final shot,",
+        "D. even though they practiced all week.",
+        "E. NO ERROR"
+      ],
+      correct: "B",
+      explanation: "'Neither' is a singular subject, so use 'is' instead of 'are'.",
+      correction: "Neither of the players is willing to take the final shot, even though they practiced all week."
+    }
+  ];
+
+  const container = document.getElementById("questions-container");
+
+  questions.forEach((q, idx) => {
+    const num = idx + 1;
+    let html = `<div class='question'><p><strong>${q.sentence}</strong></p><ul class='answers'>`;
+    q.options.forEach(opt => {
+      const letter = opt[0];
+      html += `<li><label><input type='radio' name='q${num}' value='${letter}'> ${opt}</label></li>`;
+    });
+    html += `</ul></div>`;
+    container.innerHTML += html;
+  });
+
+  function submitQuiz() {
+    let score = 0, resultHTML = '', explanationHTML = '<h3>Answer Explanations:</h3><ol>';
+    questions.forEach((q, idx) => {
+      const num = idx + 1;
+      const selected = document.querySelector(`input[name='q${num}']:checked`);
+      const answer = q.correct;
+
+      if (selected && selected.value === answer) {
+        resultHTML += `<p class='correct'>Q${num}: Correct ✅</p>`;
+        score++;
+      } else {
+        resultHTML += `<p class='incorrect'>Q${num}: Incorrect ❌. Correct answer: ${answer}</p>`;
+      }
+
+      explanationHTML += `<li><strong>${answer}</strong> – ${q.explanation}<br><em>Correct Sentence:</em> ${q.correction}</li>`;
+    });
+    explanationHTML += '</ol>';
+
+    let status = score >= 8 ? "Passed ✅" : "Failed ❌";
+    document.getElementById("result").innerHTML = `<h3>Your Score: ${score}/10 - ${status}</h3>${resultHTML}`;
+    document.getElementById("explanation").innerHTML = explanationHTML;
+    document.getElementById("explanation").style.display = "block";
+    document.getElementById("result").scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
+</body>
+</html>
